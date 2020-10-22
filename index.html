@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <title>Calculator</title>
+
+    <style type="text/css" media="all">
+
+      * {
+
+        padding: 0;
+
+        margin: 0;
+
+        box-sizing: border-box;
+
+        outline: none;
+
+      }
+
+      body {
+
+        background-color: #212121;
+
+      }
+
+      .container {
+
+        width: 277px;/*one => 70px*/
+
+        background-color: #212121;
+
+        box-shadow: 0 10px 20px #000,
+
+        0 -5px 20px #000;
+
+        margin: 150px auto;
+
+        border-radius: 20px;
+
+        overflow: hidden;
+
+      }
+
+      .txt {
+
+        height: 60px;
+
+        width: 100%;
+
+        background-color: #FFF;
+
+        font-size: 2rem;
+
+        overflow: auto;
+
+        padding: 10px;
+
+        border: none;
+
+      }
+
+      .btns {
+
+        width: 100%;
+
+        height: 100%;
+
+        border: none;
+
+        text-align: center;
+
+      }
+
+      .btn{
+
+        margin: 0;
+
+        width: 66px;
+
+        height: 60px;
+
+        border: none;
+
+        cursor: pointer;
+
+        background-color: transparent;
+
+        font-size: 2rem;
+
+        color: #FFF;
+
+      }
+
+      .btn:active {
+
+        background-color: #8e44ad;
+
+      }
+
+      .btn[value="C"]{
+
+        width: calc(68px*3);
+
+      }
+
+      .btn[value="="]{
+
+        background-color: #27ae60;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <input class="txt" type="text" placeholder="0" disabled="">
+
+      <div class="btns">
+
+        <input class="btn" type="button" value="C" onclick="clean()" style="background-color:crimson;" />
+
+        <input class="btn" type="button" value="÷" onclick="opt('/')"/>
+
+        <input class="btn" type="button" value="7" onclick="insert(7)"/>
+
+        <input class="btn" type="button" value="8" onclick="insert(8)"/>
+
+        <input class="btn" type="button" value="9" onclick="insert(9)"/>
+
+        <input class="btn" type="button" value="×" onclick="opt('*')"/>
+
+        <input class="btn" type="button" value="4" onclick="insert(4)"/>
+
+        <input class="btn" type="button" value="5" onclick="insert(5)"/>
+
+        <input class="btn" type="button" value="6" onclick="insert(6)"/>
+
+        <input class="btn" type="button" value="-" onclick="opt('-')"/>
+
+        <input class="btn" type="button" value="1" onclick="insert(1)"/>
+
+        <input class="btn" type="button" value="2" onclick="insert(2)"/>
+
+        <input class="btn" type="button" value="3" onclick="insert(3)"/>
+
+        <input class="btn" type="button" value="+" onclick="opt('+')"/>
+
+        <input class="btn" type="button" value="0" onclick="insert(0)"/>
+
+        <input class="btn" type="button" value="." onclick="opt('.')"/>
+
+        <input class="btn" type="button" value="del" onclick="del()"/>
+
+        <input class="btn" type="button" value="="  onclick="equal()"/>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" charset="utf-8">
+
+    
+
+    const myTxt = document.querySelector(".txt");
+
+    const myBtn = document.querySelector(".btn");
+
+    
+
+    function insert(num){
+
+      
+
+      myTxt.value += num;
+
+      
+
+    };
+
+    function opt(amd){
+
+      if(myTxt.value != ""){
+
+        myTxt.value += amd;
+
+      }else{
+
+        myTxt.value = "";
+
+      }
+
+    };
+
+    function zero(){
+
+      if(myTxt.value != ""){
+
+        myTxt.value += '0';
+
+      }
+
+    };
+
+    function zero(){
+
+      if(myTxt.value = ""){
+
+        myTxt.value = 0;
+
+      }
+
+    };
+
+    function clean(){
+
+      myTxt.value = "";
+
+    };
+
+    function del(){
+
+      myTxt.value = myTxt.value.substring(0, myTxt.value.length - 1);
+
+    };
+
+    function equal(){
+
+      myTxt.value = eval(myTxt.value);
+
+    };
+
+    </script>
+
+  </body>
+
+</html>
